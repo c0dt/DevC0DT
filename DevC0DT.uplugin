@@ -1,0 +1,29 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "DevC0DT",
+	"Description": "dev tools for c0dt",
+	"Category": "Other",
+	"CreatedBy": "c0dt.app",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "DevC0DT",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "DevC0DTEd",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}
