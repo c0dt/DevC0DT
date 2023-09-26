@@ -1,9 +1,9 @@
 import unreal
 from datetime import datetime
-source_skel_mesh_filename = '/Game/Lucy/DEMO/Mannequin/Character/Mesh/SK_Mannequin_Female.SK_Mannequin_Female'
-target_skel_mesh_filename = '/Game/Characters/Mannequins/Meshes/SKM_Quinn_Simple.SKM_Quinn_Simple'
-source_skel_mesh = unreal.load_asset(name = source_skel_mesh_filename)
-target_skel_mesh = unreal.load_asset(name = target_skel_mesh_filename)
+# source_skel_mesh_filename = '/Game/Lucy/DEMO/Mannequin/Character/Mesh/SK_Mannequin_Female.SK_Mannequin_Female'
+# target_skel_mesh_filename = '/Game/Characters/Mannequins/Meshes/SKM_Quinn_Simple.SKM_Quinn_Simple'
+# source_skel_mesh = unreal.load_asset(name = source_skel_mesh_filename)
+# target_skel_mesh = unreal.load_asset(name = target_skel_mesh_filename)
 def setupRetarger():
     rtg_file_name = f'/Game/Lucy/DEMO/Mannequin/Character/Rigs/RTG_Lucy'
 
@@ -50,8 +50,8 @@ def duplicate_and_retarget(retarget_asset, package_name):
         asset_subsystem.find_asset_data(package_name),
     ]
     print(assets_to_retarget)
-    source_mesh = source_skel_mesh # will use mesh from source ik rig
-    target_mesh = target_skel_mesh # will use mesh from target ik rig
+    source_mesh = None # will use mesh from source ik rig
+    target_mesh = None # will use mesh from target ik rig
     batch_result = unreal.IKRetargetBatchOperation.duplicate_and_retarget(
                                                     assets_to_retarget,
                                                     source_mesh,
@@ -71,7 +71,7 @@ def main():
     #     return
     
     source_folder_path = "/Game/Lucy"
-    target_folder_path = "/Game/Lucy2"
+    target_folder_path = "/Game/Lucy3"
 
     retargeter_asset = setupRetarger()
 
@@ -99,8 +99,8 @@ def main():
             unreal.EditorAssetLibrary.rename_asset(unreal.StringLibrary.conv_name_to_string(retarget_result.package_name),target_package_name)
 
         print(f'finished {i+1}/{asset_data_list_len}')
-        # if i>10:
-        #     break
+        if i>10:
+            break
 
     print('All Done')
 
